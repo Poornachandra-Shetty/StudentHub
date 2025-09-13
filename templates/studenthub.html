@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <style>
-      :root{
+      :root {
         --bg: #f7fafc;
         --bg-alt: #eef2ff;
         --card: #ffffff;
@@ -21,157 +20,323 @@
         --ring: #60a5fa;
         --accent: #10b981;
         --radius: 14px;
-        --shadow-sm: 0 1px 2px rgba(2, 6, 23, .04), 0 1px 1px rgba(2, 6, 23, .02);
-        --shadow: 0 10px 20px rgba(2, 6, 23, .06);
-        --shadow-lg: 0 20px 40px rgba(2, 6, 23, .08);
+        --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.04), 0 1px 1px rgba(2, 6, 23, 0.02);
+        --shadow: 0 10px 20px rgba(2, 6, 23, 0.06);
+        --shadow-lg: 0 20px 40px rgba(2, 6, 23, 0.08);
       }
-      *{box-sizing:border-box}
-      html,body{
-        height:100%;
-        font-size:18px; 
+      * {
+        box-sizing: border-box;
       }
-      body{
-        margin:0;
-        font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-        color:var(--text);
-        -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-        background:
-          radial-gradient(1200px 600px at -10% -10%, #e0f2fe 0%, rgba(255,255,255,0) 60%),
-          radial-gradient(1000px 500px at 110% 0%, #e9d5ff 0%, rgba(255,255,255,0) 60%),
-          linear-gradient(#fff, var(--bg));
+      html,
+      body {
+        height: 100%;
+        font-size: 18px;
       }
-      a{color:inherit;text-decoration:none}
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: radial-gradient(1200px 600px at -10% -10%, #e0f2fe 0%, rgba(255, 255, 255, 0) 60%), radial-gradient(1000px 500px at 110% 0%, #e9d5ff 0%, rgba(255, 255, 255, 0) 60%), linear-gradient(#fff, var(--bg));
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
       /* Responsive, full width container */
-      .container{
-        width:100vw;
-        max-width:100vw;
-        min-width:0;
-        margin:0;
-        padding:2vw;
+      .container {
+        width: 100vw;
+        max-width: 100vw;
+        min-width: 0;
+        margin: 0;
+        padding: 2vw;
       }
-      header{
-        position:sticky;
-        top:0;
-        background:#ffffffd9;
-        border-bottom:1px solid var(--border);
-        backdrop-filter:saturate(180%) blur(8px);
-        z-index:10;
-        box-shadow:var(--shadow-sm);
-        padding-left:2vw;
-        padding-right:2vw;
+      header {
+        position: sticky;
+        top: 0;
+        background: #ffffffd9;
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: saturate(180%) blur(8px);
+        z-index: 10;
+        box-shadow: var(--shadow-sm);
+        padding-left: 2vw;
+        padding-right: 2vw;
       }
-      .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
-      .brand{font-weight:800;letter-spacing:.2px}
-      .nav a{font-size:1em;color:#334155;padding:8px 10px;border-radius:8px;transition:background .2s,color .2s}
-      .nav a:hover{color:#0f172a;background:#f1f5f9}
-      main{padding:24px}
-
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+      .nav a {
+        font-size: 1em;
+        color: #334155;
+        padding: 8px 10px;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .nav a:hover {
+        color: #0f172a;
+        background: #f1f5f9;
+      }
+      main {
+        padding: 24px;
+      }
       /* Cards */
-      .card{
-        position:relative;
-        background:var(--card);
-        border:1px solid transparent;
-        border-radius:var(--radius);
-        box-shadow:var(--shadow-sm);
-        background-image:linear-gradient(var(--card),var(--card)),
-          radial-gradient(1200px 400px at 0% 0%, #dbeafe 0%, rgba(255,255,255,0) 60%);
-        background-clip:padding-box,border-box;
-        font-size:1.15em;
+      .card {
+        position: relative;
+        background: var(--card);
+        border: 1px solid transparent;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        background-image: linear-gradient(var(--card), var(--card)), radial-gradient(1200px 400px at 0% 0%, #dbeafe 0%, rgba(255, 255, 255, 0) 60%);
+        background-clip: padding-box, border-box;
+        font-size: 1.15em;
       }
-      .hero{padding:36px 24px;text-align:center}
-      .hero h1{font-size:3vw;min-font-size:28px;line-height:1.08;margin:0 0 10px;background:linear-gradient(90deg,#0f172a,#334155);-webkit-background-clip:text;background-clip:text;color:transparent}
-      .hero p{color:var(--muted);margin:0 auto 22px;max-width:720px}
-
+      .hero {
+        padding: 36px 24px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 3vw;
+        min-font-size: 28px;
+        line-height: 1.08;
+        margin: 0 0 10px;
+        background: linear-gradient(90deg, #0f172a, #334155);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p {
+        color: var(--muted);
+        margin: 0 auto 22px;
+        max-width: 720px;
+      }
       /* Form */
-      form{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-      input,select,button{font:inherit}
-      .field{grid-column:span 6}
-      .field.wide{grid-column:span 12}
-      .field input,.field select{
-        width:100%;height:42px;padding:10px 12px;border:1px solid var(--border);
-        border-radius:10px;background:#fff;outline:none;transition:border-color .15s, box-shadow .15s, transform .05s;
+      form {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 12px;
       }
-      .field input::placeholder{color:#94a3b8}
-      .field input:focus,.field select:focus{border-color:var(--ring);box-shadow:0 0 0 4px rgba(96,165,250,.18)}
-
-      /* File input */
-      input[type="file"]{padding:8px;border:1px dashed var(--border);height:auto}
-      input[type="file"]::file-selector-button{
-        margin-right:12px;border:0;border-radius:8px;background:linear-gradient(90deg,var(--primary),var(--primary-2));
-        color:#fff;font-weight:600;height:34px;padding:0 12px;cursor:pointer
+      input,
+      select,
+      button {
+        font: inherit;
       }
-      input[type="file"]:hover::file-selector-button{filter:brightness(1.03)}
-
-      .file{grid-column:span 9}
-      .actions{grid-column:span 3;display:flex}
-
-      /* Buttons */
-      .btn{
-        display:inline-flex;align-items:center;justify-content:center;height:42px;width:100%;
-        border:0;border-radius:10px;background:linear-gradient(90deg,var(--primary),var(--primary-2));
-        color:#fff;font-weight:700;letter-spacing:.2px;cursor:pointer;box-shadow:var(--shadow);
-        transition:transform .08s ease, filter .2s ease, box-shadow .2s ease
+      .field {
+        grid-column: span 6;
       }
-      .btn:hover{filter:brightness(1.02);box-shadow:var(--shadow-lg)}
-      .btn:active{transform:translateY(1px)}
-      .btn:focus{outline:3px solid rgba(59,130,246,.35);outline-offset:2px}
-
-      .section{margin-top:32px}
-      .section h2{margin:0 0 14px;font-size:2vw;}
-      .search{width:100%;max-width:440px;height:44px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;outline:none;font-size:1em;}
-      .search:focus{border-color:var(--ring);box-shadow:0 0 0 4px rgba(96,165,250,.18)}
-
-      /* Responsive Note Grid */
-      .grid{
-        display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2vw;
+      .field.wide {
+        grid-column: span 12;
+      }
+      .field input,
+      .field select {
         width: 100%;
+        height: 42px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #fff;
+        outline: none;
+        transition: border-color 0.15s, box-shadow 0.15s, transform 0.05s;
       }
-      .note{
-        width:100%;
-        box-sizing:border-box;
+      .field input::placeholder {
+        color: #94a3b8;
       }
-      .note-card{
-        background:#fff;
-        border:1px solid var(--border);
-        border-radius:14px;
-        padding:2vw;
-        min-height:160px;
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-        box-shadow:var(--shadow-sm);
-        font-size:1.15em;
-        transition:transform .15s, box-shadow .15s, border-color .15s
+      .field input:focus,
+      .field select:focus {
+        border-color: var(--ring);
+        box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
       }
-      .note-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cbd5e1}
-      .note-head{display:flex;justify-content:space-between;gap:8px}
-      .pill{background:linear-gradient(90deg,#e0e7ff,#c7d2fe);color:#3730a3;border-radius:999px;padding:4px 9px;font-size:12px;white-space:nowrap;border:1px solid #c7d2fe}
-      .muted{color:var(--muted);font-size:1em;}
-      .tags{display:flex;gap:6px;flex-wrap:wrap}
-      .tag{background:#f8fafc;border:1px solid var(--border);border-radius:999px;padding:4px 8px;font-size:12px;color:#475569}
-      .tag:hover{background:#eef2ff}
-      .note-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-
-      footer{
-        border-top:1px solid var(--border);
-        background:#fff;
-        padding-left:2vw;
-        padding-right:2vw;
+      /* File input */
+      input[type='file'] {
+        padding: 8px;
+        border: 1px dashed var(--border);
+        height: auto;
       }
-      footer .container{padding:18px;text-align:center;color:#64748b;font-size:1em}
-
+      input[type='file']::file-selector-button {
+        margin-right: 12px;
+        border: 0;
+        border-radius: 8px;
+        background: linear-gradient(90deg, var(--primary), var(--primary-2));
+        color: #fff;
+        font-weight: 600;
+        height: 34px;
+        padding: 0 12px;
+        cursor: pointer;
+      }
+      input[type='file']:hover::file-selector-button {
+        filter: brightness(1.03);
+      }
+      .file {
+        grid-column: span 9;
+      }
+      .actions {
+        grid-column: span 3;
+        display: flex;
+      }
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        width: 100%;
+        border: 0;
+        border-radius: 10px;
+        background: linear-gradient(90deg, var(--primary), var(--primary-2));
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: transform 0.08s ease, filter 0.2s ease, box-shadow 0.2s ease;
+      }
+      .btn:hover {
+        filter: brightness(1.02);
+        box-shadow: var(--shadow-lg);
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .btn:focus {
+        outline: 3px solid rgba(59, 130, 246, 0.35);
+        outline-offset: 2px;
+      }
+      .section {
+        margin-top: 32px;
+      }
+      .section h2 {
+        margin: 0 0 14px;
+        font-size: 2vw;
+      }
+      .search {
+        width: 100%;
+        max-width: 440px;
+        height: 44px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #fff;
+        outline: none;
+        font-size: 1em;
+      }
+      .search:focus {
+        border-color: var(--ring);
+        box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
+      }
+      .note {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .note-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 2vw;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: var(--shadow-sm);
+        font-size: 1.15em;
+        transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      }
+      .note-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+        border-color: #cbd5e1;
+      }
+      .note-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .pill {
+        background: linear-gradient(90deg, #e0e7ff, #c7d2fe);
+        color: #3730a3;
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 12px;
+        white-space: nowrap;
+        border: 1px solid #c7d2fe;
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 1em;
+      }
+      .tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 4px 8px;
+        font-size: 12px;
+        color: #475569;
+      }
+      .tag:hover {
+        background: #eef2ff;
+      }
+      .note-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+      footer {
+        border-top: 1px solid var(--border);
+        background: #fff;
+        padding-left: 2vw;
+        padding-right: 2vw;
+      }
+      footer .container {
+        padding: 18px;
+        text-align: center;
+        color: #64748b;
+        font-size: 1em;
+      }
       @media (max-width: 800px) {
-        html,body{font-size:16px;}
-        .container,header,footer {padding:10px;}
-        .hero h1, .section h2 {font-size:24px;}
+        html,
+        body {
+          font-size: 16px;
+        }
+        .container,
+        header,
+        footer {
+          padding: 10px;
+        }
+        .hero h1,
+        .section h2 {
+          font-size: 24px;
+        }
       }
       @media (max-width: 500px) {
-        html,body{font-size:14px;}
-        .container,header,footer {padding:5px;}
-        .card, .note-card {padding:10px;}
-        .hero h1, .section h2 {font-size:18px;}
+        html,
+        body {
+          font-size: 14px;
+        }
+        .container,
+        header,
+        footer {
+          padding: 5px;
+        }
+        .card,
+        .note-card {
+          padding: 10px;
+        }
+        .hero h1,
+        .section h2 {
+          font-size: 18px;
+        }
       }
     </style>
   </head>
@@ -186,17 +351,36 @@
       <section class="card hero">
         <h1>Share notes with your classmates</h1>
         <p>A clean, fast hub where students upload notes for others. No clutter—just simple uploads and quick browsing.</p>
-        <form id="uploadForm">
-          <div class="field"><input id="title" placeholder="Title" required /></div>
-          <div class="field"><input id="subject" placeholder="Subject" required /></div>
-          <div class="field"><input id="tags" placeholder="Tags (comma separated)" /></div>
-          <div class="field"><select id="semester"><option value="">Semester (optional)</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></div>
-          <div class="file field wide"><input id="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.zip,.txt" required /></div>
-          <div class="actions"><button class="btn" type="submit">Upload</button></div>
+        <form id="uploadForm" enctype="multipart/form-data">
+          <div class="field"><input id="title" name="title" placeholder="Title" required /></div>
+          <div class="field"><input id="subject" name="subject" placeholder="Subject" required /></div>
+          <div class="field"><input id="tags" name="tags" placeholder="Tags (comma separated)" /></div>
+          <div class="field">
+            <select id="semester" name="semester">
+              <option value="">Semester (optional)</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div class="file field wide">
+            <input id="file" name="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.zip,.txt" required />
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit">Upload</button>
+          </div>
         </form>
       </section>
+
       <section class="section">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div
+          style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"
+        >
           <h2>Browse notes</h2>
           <input id="search" class="search" placeholder="Search by title, subject, or tag" />
         </div>
@@ -207,24 +391,25 @@
       <div class="container">© 2025 NoteShare. Made for students to share notes.</div>
     </footer>
     <script>
-      const notes = [
-        { id: crypto.randomUUID(), title: "Data Structures Cheatsheet", subject: "Computer Science", semester: "3", tags: ["notes","algorithms"], fileName: "ds-cheatsheet.pdf", fileSize: "1.2 MB" },
-        { id: crypto.randomUUID(), title: "Physics Lab Manual", subject: "Physics", semester: "2", tags: ["lab","manual"], fileName: "physics-lab.pdf", fileSize: "2.9 MB" }
-      ];
-
       const listEl = document.getElementById('list');
       const searchEl = document.getElementById('search');
 
-      function render(items){
+      async function fetchNotes() {
+        const res = await fetch('/notes');
+        const notes = await res.json();
+        render(notes);
+      }
+
+      function render(items) {
         listEl.innerHTML = '';
-        if(items.length === 0){
+        if (items.length === 0) {
           const empty = document.createElement('div');
           empty.className = 'note';
           empty.innerHTML = '<div class="note-card muted" role="status">No notes found.</div>';
           listEl.appendChild(empty);
           return;
         }
-        items.forEach(n => {
+        items.forEach((n) => {
           const li = document.createElement('div');
           li.className = 'note';
           li.innerHTML = `
@@ -232,56 +417,78 @@
               <div class="note-head">
                 <div>
                   <div style="font-weight:600">${n.title}</div>
-                  <div class="muted">${n.subject}${n.semester?` · Sem ${n.semester}`:''}</div>
+                  <div class="muted">${n.subject}${n.semester ? ` · Sem ${n.semester}` : ''}</div>
                 </div>
                 <span class="pill">${n.fileSize}</span>
               </div>
-              ${n.tags && n.tags.length ? `<div class="tags">${n.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : ''}
+              ${
+                n.tags && n.tags.length
+                  ? `<div class="tags">${n.tags.map((t) => `<span class="tag">${t}</span>`).join('')}</div>`
+                  : ''
+              }
               <div class="note-foot">
-                <span class="muted" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%" title="${n.fileName}">${n.fileName}</span>
-                <button class="btn" data-id="${n.id}" style="width:auto;padding:0 12px;height:32px;font-size:12px">Download</button>
+                <span
+                  class="muted"
+                  style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%"
+                  title="${n.fileName}"
+                  >${n.fileName}</span
+                >
+                <a
+                  class="btn"
+                  href="/uploads/${n.fileName}"
+                  style="width:auto;padding:0 12px;height:32px;font-size:12px"
+                  download
+                  >Download</a
+                >
               </div>
-            </article>`;
+            </article>
+          `;
           listEl.appendChild(li);
         });
       }
 
-      function filter(){
+      function filter() {
         const q = searchEl.value.toLowerCase().trim();
-        if(!q){ render(notes); return; }
-        render(notes.filter(n => `${n.title} ${n.subject} ${n.semester||''} ${(n.tags||[]).join(' ')} ${n.fileName}`.toLowerCase().includes(q)));
+        if (!q) {
+          fetchNotes();
+          return;
+        }
+        fetchNotes().then(() => {
+          const filtered = Array.from(listEl.children).filter((noteEl) =>
+            noteEl.textContent.toLowerCase().includes(q)
+          );
+          listEl.innerHTML = '';
+          filtered.forEach((f) => listEl.appendChild(f));
+        });
       }
       searchEl.addEventListener('input', filter);
 
-      document.addEventListener('click', (e)=>{
-        const btn = e.target.closest('button[data-id]');
-        if(!btn) return;
-        const n = notes.find(x => x.id === btn.getAttribute('data-id'));
-        if(!n) return;
-        const blob = new Blob([`Sample content for ${n.title}`], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = n.fileName; document.body.appendChild(a); a.click();
-        a.remove(); URL.revokeObjectURL(url);
-      });
-
-      document.getElementById('uploadForm').addEventListener('submit', (e)=>{
+      document.getElementById('uploadForm').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const title = document.getElementById('title').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const semester = document.getElementById('semester').value.trim();
-        const tags = document.getElementById('tags').value.split(',').map(s=>s.trim()).filter(Boolean);
-        const file = document.getElementById('file').files[0];
-        if(!title || !subject || !file) return;
-        const size = `${(file.size/1024/1024).toFixed(1)} MB`;
-        notes.unshift({ id: crypto.randomUUID(), title, subject, semester: semester||'', tags, fileName: file.name, fileSize: size });
-        e.target.reset();
-        searchEl.value = '';
-        render(notes);
-        listEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch('/upload', {
+            method: 'POST',
+            body: formData,
+          });
+          if (!response.ok) {
+            const errorData = await response.json();
+            alert('Upload failed: ' + (errorData.error || 'Unknown error'));
+            return;
+          }
+          alert('Upload successful');
+          form.reset();
+          searchEl.value = '';
+          fetchNotes();
+        } catch (error) {
+          alert('Upload error: ' + error.message);
+        }
       });
 
-      render(notes);
+      
+      fetchNotes();
     </script>
   </body>
 </html>

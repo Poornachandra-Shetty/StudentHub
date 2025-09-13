@@ -40,6 +40,7 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
+    try:
         title = request.form.get('title')
         subject = request.form.get('subject')
         semester = request.form.get('semester')
@@ -69,7 +70,10 @@ def upload():
         notes_collection.insert_one(note)
     
         return jsonify({"message": "Upload successful"}), 201
-    
+    except Exception as e:
+        # Log the error server-side for diagnosis if you want:
+        print(f"Upload error: {e}")
+        return jsonify({"error": "An unexpected error occurred."}), 500
 
 @app.route('/notes', methods=['GET'])
 def notes():
@@ -85,5 +89,5 @@ def download(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
