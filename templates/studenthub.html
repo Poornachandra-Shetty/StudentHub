@@ -3,279 +3,385 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NoteShare — Standalone</title>
+    <title>NoteShare — Enhanced</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #f7fafc;
-        --card: #fff;
-        --text: #0f172a;
-        --muted: #475569;
-        --border: #e2e8f0;
-
-        /* Vibrant palette */
-        --blue: #3b82f6;
-        --purple: #a855f7;
-        --green: #22c55e;
-        --orange: #f97316;
+        --bg: #0f0f23;
+        --card: #1e1e3f;
+        --text: #fff;
+        --muted: #a0a0b0;
+        --border: #2a2a4a;
+        --blue: #4f46e5;
+        --purple: #7c3aed;
+        --green: #10b981;
+        --orange: #f59e0b;
         --pink: #ec4899;
-        --yellow: #eab308;
-
-        --radius: 14px;
-        --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        --cyan: #06b6d4;
+        --grad: linear-gradient(135deg, #667eea, #764ba2);
       }
-
-      /* Reset + global */
-      * {
-        box-sizing: border-box;
-      }
-      html, body {
-        height: 100%;
-        font-size: 18px;
+      * { box-sizing: border-box; }
+      body {
         margin: 0;
-        font-family: Inter, sans-serif;
+        font: 16px Inter, sans-serif;
         color: var(--text);
-        background: linear-gradient(135deg, #e0f2fe, #fce7f3, #fef9c3);
+        background: var(--bg);
+        line-height: 1.6;
       }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      /* Header */
+      a { text-decoration: none; color: inherit; transition: .3s; }
       header {
         position: sticky;
         top: 0;
-        background: #ffffffcc;
-        backdrop-filter: blur(10px);
+        background: rgba(15,15,35,.8);
+        backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--border);
-        z-index: 10;
-        box-shadow: var(--shadow);
-        padding: 0 2vw;
+        z-index: 100;
+        box-shadow: 0 10px 30px rgba(0,0,0,.3);
       }
       .nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 60px;
+        height: 70px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
       }
       .brand {
         font-weight: 800;
-        font-size: 1.3rem;
-        background: linear-gradient(90deg, var(--blue), var(--purple));
+        font-size: 1.8rem;
+        background: var(--grad);
         -webkit-background-clip: text;
-        color: transparent;
+        -webkit-text-fill-color: transparent;
       }
       .nav a {
-        margin-left: 16px;
-        padding: 8px 14px;
+        margin-left: 2rem;
+        padding: .75rem 1.5rem;
         border-radius: 8px;
         font-weight: 500;
         color: var(--muted);
-        transition: 0.2s;
+        transition: .3s;
       }
       .nav a:hover {
-        background: var(--blue);
-        color: #fff;
+        background: var(--grad);
+        color: var(--text);
+        transform: translateY(-2px);
       }
-
-      /* Layout */
       .container {
-        width: 100%;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 2vw;
+        padding: 0 2rem;
       }
-      main {
-        padding: 24px;
-      }
+      main { padding: 3rem 0; }
       .card {
         background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 24px;
-        margin-bottom: 24px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.3);
+        padding: 3rem;
+        margin-bottom: 3rem;
+        border: 1px solid var(--border);
+        transition: .3s;
       }
-
-      /* Hero */
+      .card:hover { transform: translateY(-4px); }
+      .hero { text-align: center; }
       .hero h1 {
-        font-size: clamp(28px, 3vw, 42px);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
         line-height: 1.1;
-        margin: 0 0 12px;
-        background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+        margin: 0 0 1.5rem;
+        background: var(--grad);
         -webkit-background-clip: text;
-        color: transparent;
+        -webkit-text-fill-color: transparent;
       }
       .hero p {
         color: var(--muted);
-        margin: 0 0 22px;
-        max-width: 720px;
-        text-align: left; 
+        margin: 0 0 3rem;
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
       }
-
-      /* Form */
       form {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        gap: 12px;
+        gap: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
       }
-      .field {
-        grid-column: span 6;
+      .field { grid-column: span 6; }
+      .field.wide { grid-column: span 12; }
+      .field label {
+        display: block;
+        margin-bottom: .5rem;
+        font-weight: 500;
+        color: var(--muted);
+        font-size: .9rem;
       }
-      .field.wide {
-        grid-column: span 12;
-      }
-      input,
-      select {
+      input, select {
         width: 100%;
-        padding: 10px 12px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        font-size: 1em;
+        padding: 1rem 1.25rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        font-size: 1rem;
         outline: none;
-        transition: 0.2s;
+        transition: .3s;
+        background: var(--bg);
+        color: var(--text);
+        font-family: inherit;
       }
-      input:focus,
-      select:focus {
+      input:focus, select:focus {
         border-color: var(--blue);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+        box-shadow: 0 0 0 4px rgba(79,70,229,.2);
+        transform: translateY(-2px);
+      }
+      input[type="file"] {
+        padding: 1.5rem;
+        border-style: dashed;
+        text-align: center;
+        cursor: pointer;
       }
       .actions {
         grid-column: span 12;
         display: flex;
-        gap: 12px;
-        justify-content: flex-start; 
+        justify-content: center;
+        margin-top: 1rem;
       }
       .btn {
-        height: 44px;
-        width: auto; 
-        padding: 0 28px; 
+        height: 56px;
+        padding: 0 2.5rem;
         border: none;
-        border-radius: 10px;
-        font-weight: 800; 
+        border-radius: 12px;
+        font-weight: 600;
         cursor: pointer;
-        color: #fff;
-        background: linear-gradient(90deg, var(--blue), var(--purple));
-        transition: 0.2s;
+        color: var(--text);
+        background: var(--grad);
+        transition: .3s;
+        font-size: 1rem;
+        font-family: inherit;
       }
-      .btn:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.1);
-      }
-
-      /* Notes */
+      .btn:hover { transform: translateY(-3px); }
       .section h2 {
-        margin: 18px 0;
-        font-size: 1.6rem;
+        margin: 0 0 2rem;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+      .search {
+        padding: 1rem 1.25rem 1rem 3rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 1rem;
+        max-width: 400px;
+      }
+      .search-container { position: relative; }
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        pointer-events: none;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
       }
       .note-card {
-        background: #fff;
-        border-radius: var(--radius);
-        padding: 20px;
-        margin-bottom: 16px;
-        box-shadow: var(--shadow);
-        border-left: 6px solid var(--blue);
-        transition: 0.2s;
+        background: var(--card);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,.3);
+        border: 1px solid var(--border);
+        transition: .3s;
+        position: relative;
       }
-      .note-card:hover {
-        transform: translateY(-4px);
+      .note-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--grad);
+      }
+      .note-card:hover { transform: translateY(-4px); }
+      .note-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .note-head > div > div:first-child {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: .25rem;
+      }
+      .note-head > div > div:last-child {
+        color: var(--muted);
+        font-size: .9rem;
       }
       .pill {
-        padding: 4px 9px;
+        padding: .5rem 1rem;
         border-radius: 999px;
-        font-size: 12px;
+        font-size: .75rem;
         font-weight: 600;
-        background: linear-gradient(90deg, var(--green), var(--blue));
-        color: #fff;
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
+        white-space: nowrap;
       }
       .tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: .5rem;
+        margin-bottom: 1rem;
       }
       .tag {
         border-radius: 999px;
-        padding: 4px 8px;
-        font-size: 12px;
+        padding: .25rem .75rem;
+        font-size: .75rem;
         font-weight: 500;
-        color: #fff;
+        color: var(--text);
       }
-      .tag:nth-child(5n+1) { background: var(--blue); }
-      .tag:nth-child(5n+2) { background: var(--purple); }
-      .tag:nth-child(5n+3) { background: var(--green); }
-      .tag:nth-child(5n+4) { background: var(--orange); }
-      .tag:nth-child(5n+5) { background: var(--pink); }
-
+      .tag:nth-child(6n+1) { background: var(--blue); }
+      .tag:nth-child(6n+2) { background: var(--purple); }
+      .tag:nth-child(6n+3) { background: var(--green); }
+      .tag:nth-child(6n+4) { background: var(--orange); }
+      .tag:nth-child(6n+5) { background: var(--pink); }
+      .tag:nth-child(6n+6) { background: var(--cyan); }
+      .note-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+      }
+      .note-foot span {
+        color: var(--muted);
+        font-size: .85rem;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
       .note-foot .btn {
-        height: 32px;
-        padding: 0 12px;
-        font-size: 12px;
-        background: linear-gradient(90deg, var(--orange), var(--yellow));
-        font-weight: 700;
+        height: 36px;
+        padding: 0 1.5rem;
+        font-size: .85rem;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
       }
-
-      /* Footer */
+      .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--muted);
+      }
+      .empty-state h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--muted);
+      }
       footer {
         border-top: 1px solid var(--border);
-        background: #fff;
-        padding: 12px;
+        background: #1a1a2e;
+        padding: 2rem 0;
         text-align: center;
-        color: #64748b;
+        color: var(--muted);
+        margin-top: 4rem;
       }
-
-      /* Responsive */
-      @media (max-width: 800px) {
-        html, body { font-size: 16px; }
-        .hero h1, .section h2 { font-size: 24px; }
+      @media (max-width: 768px) {
+        .container { padding: 0 1rem; }
+        .nav { padding: 0 1rem; height: 60px; }
+        .brand { font-size: 1.5rem; }
+        .nav a { margin-left: 1rem; padding: .5rem 1rem; }
+        .card { padding: 2rem; margin-bottom: 2rem; }
+        .field { grid-column: span 12; }
+        .section-header { flex-direction: column; align-items: stretch; }
+        .grid { grid-template-columns: 1fr; }
+        .hero h1 { font-size: 2.5rem; }
+        .hero p { font-size: 1.1rem; }
       }
-      @media (max-width: 500px) {
-        html, body { font-size: 14px; }
-        .hero h1, .section h2 { font-size: 18px; }
+      @media (max-width: 480px) {
+        .hero h1 { font-size: 2rem; }
+        .card { padding: 1.5rem; }
+        input, select, .search { padding: .75rem 1rem; }
+        .btn { height: 48px; padding: 0 2rem; }
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="container nav">
+      <div class="nav">
         <div class="brand">NoteShare</div>
-        <nav><a href="#">Home</a></nav>
+        <nav>
+          <a href="#"><span>Home</span></a>
+        </nav>
       </div>
     </header>
+    
     <main class="container">
       <section class="card hero">
         <h1>Share notes with your classmates</h1>
-        <p>A clean, fast hub where students upload notes for others. No clutter—just simple uploads and quick browsing.</p>
+        <p>A modern, intuitive platform where students collaborate by sharing knowledge. Upload your notes and discover resources from your peers—simple, fast, and effective.</p>
+        
         <form id="uploadForm" enctype="multipart/form-data">
-          <div class="field"><input id="title" name="title" placeholder="Title" required /></div>
-          <div class="field"><input id="subject" name="subject" placeholder="Subject" required /></div>
-          <div class="field"><input id="tags" name="tags" placeholder="Tags (comma separated)" /></div>
           <div class="field">
+            <label for="title">Note Title</label>
+            <input id="title" name="title" placeholder="Enter note title" required />
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" placeholder="Subject name" required />
+          </div>
+          <div class="field">
+            <label for="tags">Tags</label>
+            <input id="tags" name="tags" placeholder="Tags (comma separated)" />
+          </div>
+          <div class="field">
+            <label for="semester">Semester</label>
             <select id="semester" name="semester">
-              <option value="">Semester (optional)</option>
+              <option value="">Select semester (optional)</option>
               <option>1</option><option>2</option><option>3</option><option>4</option>
               <option>5</option><option>6</option><option>7</option><option>8</option>
             </select>
           </div>
-          <div class="file field wide">
+          <div class="field wide">
+            <label for="file">Upload File</label>
             <input id="file" name="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.zip,.txt" required />
           </div>
           <div class="actions">
-            <button class="btn" type="submit">Upload</button>
+            <button class="btn" type="submit"><span>Upload Note</span></button>
           </div>
         </form>
       </section>
 
       <section class="section">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-          <h2>Browse notes</h2>
-          <input id="search" class="search" placeholder="Search by title, subject, or tag" />
+        <div class="section-header">
+          <h2>Browse Notes</h2>
+          <div class="search-container">
+            <div class="search-icon">🔍</div>
+            <input id="search" class="search" placeholder="Search notes, subjects, or tags..." />
+          </div>
         </div>
         <div id="list" class="grid" aria-live="polite"></div>
       </section>
     </main>
+    
     <footer>
-      <div class="container">© 2025 NoteShare. Made for students to share notes.</div>
+      <div class="container">
+        © 2025 NoteShare. Empowering students through collaborative learning.
+      </div>
     </footer>
 
     <script>
@@ -292,20 +398,24 @@
         listEl.innerHTML = '';
         if (items.length === 0) {
           const empty = document.createElement('div');
-          empty.className = 'note';
-          empty.innerHTML = '<div class="note-card muted" role="status">No notes found.</div>';
+          empty.className = 'empty-state';
+          empty.innerHTML = `
+            <h3>No notes found</h3>
+            <p>Be the first to share your notes with the community!</p>
+          `;
           listEl.appendChild(empty);
           return;
         }
-        items.forEach((n) => {
+        items.forEach((n, index) => {
           const li = document.createElement('div');
           li.className = 'note';
+          li.style.setProperty('--index', index);
           li.innerHTML = `
             <article class="note-card" aria-label="${n.title}">
               <div class="note-head">
                 <div>
-                  <div style="font-weight:600">${n.title}</div>
-                  <div class="muted">${n.subject}${n.semester ? ` · Sem ${n.semester}` : ''}</div>
+                  <div>${n.title}</div>
+                  <div>${n.subject}${n.semester ? ` · Semester ${n.semester}` : ''}</div>
                 </div>
                 <span class="pill">${n.fileSize}</span>
               </div>
@@ -315,10 +425,8 @@
                   : ''
               }
               <div class="note-foot">
-                <span class="muted" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%" title="${n.fileName}">
-                  ${n.fileName}
-                </span>
-                <a class="btn" href="/uploads/${n.fileName}" download>Download</a>
+                <span title="${n.fileName}">📄 ${n.fileName}</span>
+                <a class="btn" href="/uploads/${n.fileName}" download><span>Download</span></a>
               </div>
             </article>
           `;
