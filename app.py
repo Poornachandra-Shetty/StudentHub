@@ -1,14 +1,11 @@
 import os
 from flask import Flask, request, jsonify, send_from_directory, render_template
 from flask_pymongo import PyMongo
-from pymongo import MongoClient
-from pymongo.server_api import ServerApi
 from werkzeug.exceptions import RequestEntityTooLarge
 from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
-uri = "mongodb+srv://poornachandra14046_db_user:poorna123@cluster0.yajczea.mongodb.net/studenthubdb?retryWrites=true&w=majority&appName=Cluster0"
 
 
 @app.errorhandler(RequestEntityTooLarge)
