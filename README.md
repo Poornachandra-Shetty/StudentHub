@@ -4,5 +4,5 @@ So whats a student hub? You remember the time during exams? Scattered notes,inco
 Its a platform where students can share notes with other students. You can upload notes for others to access. Cant find your notes? Just search for it on the studenthub.It provides an easy way of storing notes in an organized way.<br>
 Current Flaws-
 1. The website isnt deployed publicly (yet).
-2. The database is MongoDB which doesnt let users who's ip address isnt whitelisted to access stuff.
+2. The database is MongoDB which doesnt let users who's ip address isnt whitelisted to access stuff.<br>
 Well we hope to fix the flaws asap,until then keep your notes ready to upload on the website :p.
